@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%block header%}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'friends:index' %}">Friends App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="{% url 'friends:index' %}" class="nav-link">Friends</a>
+          </li>
+          <li class="nav-item active">
+            <a href="{% url 'friends:index' %}" class="nav-link">Add New Friend</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  <div>
+    {%block content%}{%endblock%}
+  </div>
+{%endblock%}

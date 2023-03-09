@@ -1,0 +1,13 @@
+{% extends "header.html" %}
+
+{%block content %}
+  {% if friends %}
+    <ul>
+      {% for friend in friends %}
+        <li><a href="{% url 'friends:show' friend.id %}"> {{ friend.last_name }} {{ friend.first_name }} </a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Np friends are available</p>
+  {% endif %}
+{%endblock%}

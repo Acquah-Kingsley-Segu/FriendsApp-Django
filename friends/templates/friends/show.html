@@ -1,0 +1,8 @@
+{% if friend %}
+  <div>
+    <h4>{{ friend.last_name }} {{ friend.first_name }}</h4>
+    <p>{{friend.email}} | {{friend.phone}} | {{friend.twitter_handle}} </p>
+  </div>
+{% else %}
+  <p>Friend with id {{ friend_id }} does not exist</p>
+{% endif %}
