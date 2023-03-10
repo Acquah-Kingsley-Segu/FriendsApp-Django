@@ -1,13 +1,32 @@
 {% extends "header.html" %}
 
 {%block content %}
-  {% if friends %}
-    <ul>
-      {% for friend in friends %}
-        <li><a href="{% url 'friends:show' friend.id %}"> {{ friend.last_name }} {{ friend.first_name }} </a></li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>Np friends are available</p>
-  {% endif %}
+  <table class="table table-striped table-bordered table-hover table-sm my-2">
+    <thead class="bg-success">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Twitter Handle</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if friends %}
+        {% for friend in friends %}
+          <tr>
+            <td><a href="{% url 'friends:show' friend.id %}">{{ friend.last_name }} {{ friend.first_name }}</a></td>
+            <td>{{friend.email}}</td>
+            <td>{{friend.phone}}</td>
+            <td>{{friend.twitter_handle}}</td>
+            <td>
+              <button class = "btn btn-outline-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <p>No friends are available</p>
+      {% endif %}
+    </tbody>
+  </table>
 {%endblock%}
