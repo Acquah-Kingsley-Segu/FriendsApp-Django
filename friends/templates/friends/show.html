@@ -2,9 +2,11 @@
 
 {% block content %}
   {% if friend %}
-    <div>
-      <h4>{{ friend.last_name }} {{ friend.first_name }}</h4>
-      <p>{{friend.email}} | {{friend.phone}} | {{friend.twitter_handle}} </p>
+    <div class="jumbotron mx-5 mt-4">
+      <h1 class="display-4">{{ friend.last_name }} {{ friend.first_name }}</h1>
+      <p class="lead">{{friend.email}} | {{friend.phone}} | {{friend.twitter_handle}} </p>
+      <a class="btn btn-outline-success btn-md" href="{% url 'friends:index' %}" role="button">Done</a>
+      <a class="btn btn-outline-dark btn-md" href="{% url 'friends:edit' friend.id %}" role="button">Edit</a>
     </div>
   {% else %}
     <p>Friend with id {{ friend_id }} does not exist</p>

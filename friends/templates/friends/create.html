@@ -1,0 +1,30 @@
+{% extends "header.html" %}
+
+{% block content %}
+  <div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="m-5 border p-3 w-75 rounded shadow">
+      <form action="{% url 'friends:save' %}" method="POST">
+      {% csrf_token %}
+        <div class="form-group">
+          <input type="text" name="first_name" placeholder="First Name" class="form-control form-control-sm" value="" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="last_name" placeholder="Last Name" class="form-control form-control-sm" value="" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email Address" class="form-control form-control-sm" value="" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Phone Number" class="form-control form-control-sm" value="" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="twitter_handle" placeholder="Twitter Handle" class="form-control form-control-sm" value="" required>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <input type="submit" class="btn btn-outline-success btn-md mx-3" value="Create Friend">
+          <a href="{% url 'friends:index' %}" class="btn btn-outline-dark btn-md">Back To Friends</a>
+        </div>
+      </form>
+    </div>
+  </div>
+{%endblock%}

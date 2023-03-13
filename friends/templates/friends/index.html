@@ -20,7 +20,7 @@
             <td>{{friend.phone}}</td>
             <td>{{friend.twitter_handle}}</td>
             <td>
-              <button class = "btn btn-outline-danger btn-sm">Delete</button>
+              <a href="{% url 'friends:delete' friend.id %}" class = "btn btn-outline-danger btn-sm">Delete</a>
             </td>
           </tr>
         {% endfor %}
@@ -29,4 +29,7 @@
       {% endif %}
     </tbody>
   </table>
+  <div class="d-flex justify-content-center">
+    <a href="{% url 'friends:create' %}" class="btn btn-outline-success btn-sm">Create New Friend</a>
+  </div>
 {%endblock%}

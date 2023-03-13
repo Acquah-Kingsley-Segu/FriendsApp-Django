@@ -1,0 +1,28 @@
+{% extends 'create.html' %}
+
+{% block form %}
+  <div class="mx-5 border p-3 w-75 rounded shadow d-flex flex-column">
+    <form action="{% url 'friends:create' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" name="first_name" placeholder="First Name" class="form-control form-control-sm" >
+      </div>
+      <div class="form-group">
+        <input type="text" name="last_name" placeholder="Last Name" class="form-control form-control-sm" >
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email Address" class="form-control form-control-sm" >
+      </div>
+      <div class="form-group">
+        <input type="text" name="phone" placeholder="Phone Number" class="form-control form-control-sm" >
+      </div>
+      <div class="form-group">
+        <input type="text" name="twitter_handle" placeholder="Twitter Handle" class="form-control form-control-sm" >
+      </div>
+      <div class="form-group d-flex justify-content-center">
+        <input class="btn btn-success btn-md mx-3">
+        <a href="{% url 'friends:index' %}" class="btn btn-dark btn-md">Back To Friends</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}
